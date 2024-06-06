@@ -52,7 +52,7 @@
 			<a href="#" class="header-search-btn">
 				<img src="images/magnify.svg" alt="Поиск">
 			</a>
-			<a href="#" class="header-cart">
+			<a href="cart.html" class="header-cart">
 				<img src="images/cart.svg" alt="Корзина">
 			</a>
 		</div>
@@ -68,7 +68,7 @@
 				<div class="header-group">
 					<nav class="header-nav">
 						<ul>
-							<li><a href="#">Продукты</a></li>
+							<li><a href="#">Товары</a></li>
 							<li><a href="#">Контакты</a></li>
 							<li><a href="authorization.html">Войти</a></li>
 						</ul>
@@ -77,7 +77,7 @@
 						<a href="#" class="header-search-btn">
 							<img src="images/magnify.svg" alt="Поиск">
 						</a>
-						<a href="#" class="header-cart">
+						<a href="cart.html" class="header-cart">
 							<img src="images/cart.svg" alt="Корзина">
 						</a>
 					</div>
@@ -155,13 +155,7 @@
 							<span class="product-price-new">320₽</span>
 						</div>
 						<div class="product-button">
-							<a class="button" 
-							 data-sb-id-or-vendor-code="01" 
-							 data-sb-product-name="Борщ с салом" 
-							 data-sb-product-price="320" 
-							 data-sb-product-quantity="1"
-							data-sb-product-img="images/borh.jpg" 
-							href="#" >
+							<a class="button" href="#" >
 							Добавить в корзину</a>
 						</div>
 					</div>
@@ -176,13 +170,7 @@
 							<span class="product-price-new">150₽</span>
 						</div>
 						<div class="product-button">
-							<a class="button" 
-							 data-sb-id-or-vendor-code="02" 
-							 data-sb-product-name="Оливки" 
-							 data-sb-product-price="150" 
-							 data-sb-product-quantity="1"
-							data-sb-product-img="images/olivki.jpg" 
-							href="#">Добавить в корзину</a>
+							<a class="button" href="#">Добавить в корзину</a>
 						</div>
 					</div>
 					<div class="products-item">
@@ -196,13 +184,7 @@
 							<span class="product-price-new">150₽</span>
 						</div>
 						<div class="product-button">
-							<a class="button" 
-							 data-sb-id-or-vendor-code="03" 
-							 data-sb-product-name="Грибы маринованные" 
-							 data-sb-product-price="150" 
-							 data-sb-product-quantity="1"
-							data-sb-product-img="images/griby.jpg" 
-							href="#">Добавить в корзину</a>
+							<a class="button" href="#">Добавить в корзину</a>
 						</div>
 					</div>
 					<div class="products-item">
@@ -216,13 +198,7 @@
 							<span class="product-price-new">150₽</span>
 						</div>
 						<div class="product-button">
-							<a class="button" 
-							 data-sb-id-or-vendor-code="04" 
-							 data-sb-product-name="Гренки" 
-							 data-sb-product-price="150" 
-							 data-sb-product-quantity="1"
-							data-sb-product-img="images/grenki.jpg" 
-							href="#">Добавить в корзину</a>
+							<a class="button" href="#">Добавить в корзину</a>
 						</div>
 					</div>
 					<div class="products-item">
@@ -236,13 +212,7 @@
 							<span class="product-price-new">190₽</span>
 						</div>
 						<div class="product-button">
-							<a class="button" 
-							 data-sb-id-or-vendor-code="05" 
-							 data-sb-product-name="Луковые кольца" 
-							 data-sb-product-price="190" 
-							 data-sb-product-quantity="1"
-							data-sb-product-img="images/kolechki.jpg" 
-							href="#">Добавить в корзину</a>
+							<a class="button" href="#">Добавить в корзину</a>
 						</div>
 					</div>
 					<div class="products-item">
@@ -256,13 +226,7 @@
 							<span class="product-price-new">150₽</span>
 						</div>
 						<div class="product-button">
-							<a class="button" 
-							 data-sb-id-or-vendor-code="0" 
-							 data-sb-product-name="Сыр чечил" 
-							 data-sb-product-price="150" 
-							 data-sb-product-quantity="1"
-							data-sb-product-img="images/sir" 
-							href="#">Добавить в корзину</a>
+							<a class="button" href="#">Добавить в корзину</a>
 						</div>
 					</div>
 				</div>
@@ -332,37 +296,6 @@
 	</main>
 
 	<script src="js/script.js"></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-	<link rel="stylesheet" href="smartbasket/css/smartbasket.min.css">
-
-<div class="smart-basket__wrapper"></div>
-
-<script src="./smartbasket/js/smartbasket.min.js"></script>
-
-	<script>
-		$(function () {
-			$('.smart-basket__wrapper').smbasket({
-				productElement: 'products-thumb',
-				buttonAddToBasket: 'product-button',
-				productPrice: 'product__price-number',
-				productSize: 'product__size-element',
-				
-				productQuantityWrapper: 'product__quantity',
-				smartBasketMinArea: 'header-cart',
-				countryCode: '+7',
-				smartBasketCurrency: '₽',
-				smartBasketMinIconPath: './smartbasket/img/shopping-basket-wight.svg',
-
-				agreement: {
-					isRequired: true,
-					isChecked: true,
-					isLink: 'https://artstranger.ru/privacy.html',
-				},
-				nameIsRequired: false,
-			});
-		});
-	</script>
 	
 </body>
 
