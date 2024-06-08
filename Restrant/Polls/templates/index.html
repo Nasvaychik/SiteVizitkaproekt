@@ -1,5 +1,6 @@
-<!DOCTYPE html>
 {% load static %}
+
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -78,7 +79,7 @@
 						<a href="#" class="header-search-btn">
 							<img src="{% static "images/magnify.svg" %}" alt="Поиск">
 						</a>
-						<a href="cart.html" class="header-cart">
+						<a href="{%  url 'cart'  %}" class="header-cart">
 							<img src="{% static "images/cart.svg" %}" alt="Корзина">
 						</a>
 					</div>

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -5,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Корзина товаров</title>
-    <link rel="stylesheet" href="css/cart.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{% static 'css/cart.css'  %}">
+    <link rel="stylesheet" href="{% static 'css/style.css'  %}">
 </head>
 <body>
 
@@ -14,17 +15,17 @@
 		<div class="container">
 			<div class="search-top">
 				<div class="search-logo">
-					<img src="images/logo.svg" alt="Логотип">
+					<img src="{% static 'images/logo.svg'  %}" alt="Логотип">
 				</div>
 				<div class="search-close">
-					<img src="images/close.svg" alt="Закрыть">
+					<img src="{% static 'images/close.svg'  %}" alt="Закрыть">
 				</div>
 			</div>
 			<div class="search-body">
 				<form>
 					<input type="search" placeholder="Введите Ваши Поисковые слова ...">
 					<button>
-						<img src="images/magnify.svg" alt="Поиск">
+						<img src="{% static 'images/magnify.svg'  %}" alt="Поиск">
 					</button>
 				</form>
 			</div>
@@ -34,25 +35,25 @@
 	<div class="mobile-menu-wrap">
 		<div class="mobile-header">
 			<div class="mobile-logo">
-				<img src="images/logo.svg" alt="Логотип">
+				<img src="{% static 'images/logo.svg'  %}" alt="Логотип">
 			</div>
 			<div class="mobile-close">
-				<img src="images/close.svg" alt="Закрыть">
+				<img src="{% static 'images/close.svg'  %}" alt="Закрыть">
 			</div>
 		</div>
 		<nav>
 			<ul>
 				<li><a href="#">Товары</a></li>
 				<li><a href="#">Контакты</a></li>
-				<li><a href="authorization.html">Войти</a></li>
+				<li><a href="{% url 'login' %}">Войти</a></li>
 			</ul>
 		</nav>
 		<div class="header-mobile-btn">
 			<a href="#" class="header-search-btn">
-				<img src="images/magnify.svg" alt="Поиск">
+				<img src="{% static 'images/magnify.svg'  %}" alt="Поиск">
 			</a>
 			<a href="cart.html" class="header-cart">
-				<img src="images/cart.svg" alt="Корзина">
+				<img src="{% static 'images/cart.svg'  %}" alt="Корзина">
 			</a>
 		</div>
 	</div>
@@ -61,7 +62,7 @@
 		<div class="container">
 			<div class="header-wrap">
 				<a href="/" class="header-logo">
-					<img src="images/logo.svg" alt="Логотип">
+					<img src="{% static 'images/logo.svg'  %}" alt="Логотип">
 				</a>
 
 				<div class="header-group">
@@ -69,21 +70,21 @@
 						<ul>
 							<li><a href="#">Товары</a></li>
 							<li><a href="#">Контакты</a></li>
-							<li><a href="authorization.html">Войти</a></li>
+							<li><a href="{% url 'login' %}">Войти</a></li>
 						</ul>
 					</nav>
 					<div class="header-right">
 						<a href="#" class="header-search-btn">
-							<img src="images/magnify.svg" alt="Поиск">
+							<img src="{% static 'images/magnify.svg'  %}" alt="Поиск">
 						</a>
 						<a href="cart.html" class="header-cart">
-							<img src="images/cart.svg" alt="Корзина">
+							<img src="{% static 'images/cart.svg'  %}" alt="Корзина">
 						</a>
 					</div>
 				</div>
 
 				<div class="hamburger">
-					<img src="images/hamburger.svg" alt="Hamburger">
+					<img src="{% static 'images/hamburger.svg'  %}" alt="Hamburger">
 				</div>
 			</div>
 		</div>
@@ -106,7 +107,7 @@
                     </header>
 
                     <section class="product">
-                        <div class="product__img"><img src="/images/borh.jpg" alt="Borh"></div>
+                        <div class="product__img"><img src="{% static 'images/borh.jpg'  %}" alt="Borh"></div>
                         <div class="product__title">Борщ с салом</div>
                         <div class="product__count">
                             <div class="count">
@@ -115,10 +116,10 @@
                                 </div>
                                 <div class="count__controls">
                                     <button type="button" class="count__up">
-                                        <img src="images/icon-up.svg" alt="Increase">
+                                        <img src="{% static 'images/icon-up.svg'  %}" alt="Increase">
                                     </button>
                                     <button type="button" class="count__down">
-                                        <img src="images/icon-down.svg" alt="Decrease">
+                                        <img src="{% static 'images/icon-down.svg'  %}" alt="Decrease">
                                     </button>
                                 </div>
                             </div>
@@ -126,13 +127,13 @@
                         <div class="product__price">320₽</div>
                         <div class="product__controls">
                             <button type="button">
-                                <img src="images/cross.svg" alt="Delete">
+                                <img src="{% static 'images/cross.svg'  %}" alt="Delete">
                             </button>
                         </div>
                     </section>
 
                     <section class="product">
-                        <div class="product__img"><img src="images/grenki.jpg" alt="grenki"></div>
+                        <div class="product__img"><img src="{% static 'images/grenki.jpg'  %}" alt="grenki"></div>
                         <div class="product__title">Гренки с чесноком</div>
                         <div class="product__count">
                             <div class="count">
@@ -141,10 +142,10 @@
                                 </div>
                                 <div class="count__controls">
                                     <button type="button" class="count__up">
-                                        <img src="images/icon-up.svg" alt="Increase">
+                                        <img src="{% static 'images/icon-up.svg'  %}" alt="Increase">
                                     </button>
                                     <button type="button" class="count__down">
-                                        <img src="images/icon-down.svg" alt="Decrease">
+                                        <img src="{% static 'images/icon-down.svg'  %}" alt="Decrease">
                                     </button>
                                 </div>
                             </div>
@@ -152,13 +153,13 @@
                         <div class="product__price">150₽</div>
                         <div class="product__controls">
                             <button type="button">
-                                <img src="images/cross.svg" alt="Delete">
+                                <img src="{% static 'images/cross.svg'  %}" alt="Delete">
                             </button>
                         </div>
                     </section>
 
                     <section class="product">
-                        <div class="product__img"><img src="images/griby.jpg" alt="griby"></div>
+                        <div class="product__img"><img src="{%  static 'images/griby.jpg'  %}" alt="griby"></div>
                         <div class="product__title">Грибы маринованные</div>
                         <div class="product__count">
                             <div class="count">
@@ -167,10 +168,10 @@
                                 </div>
                                 <div class="count__controls">
                                     <button type="button" class="count__up">
-                                        <img src="images/icon-up.svg" alt="Increase">
+                                        <img src="{% static 'images/icon-up.svg'  %}" alt="Increase">
                                     </button>
                                     <button type="button" class="count__down">
-                                        <img src="images/icon-down.svg" alt="Decrease">
+                                        <img src="{% static 'images/icon-down.svg'  %}" alt="Decrease">
                                     </button>
                                 </div>
                             </div>
@@ -178,7 +179,7 @@
                         <div class="product__price">150₽</div>
                         <div class="product__controls">
                             <button type="button">
-                                <img src="images/cross.svg" alt="Delete">
+                                <img src="{% static 'images/cross.svg'  %}" alt="Delete">
                             </button>
                         </div>
                     </section>

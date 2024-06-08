@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.views import View
+from django.views.generic import TemplateView
 
 # Create your views here.
 class RegisterView(View):
@@ -34,3 +35,7 @@ def reg(request):
 
 def index(request):
     return render(request, 'index.html')
+
+
+class CartView(TemplateView):
+    template_name = 'cart.html'
