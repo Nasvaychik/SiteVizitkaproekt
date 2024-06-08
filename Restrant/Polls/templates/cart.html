@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина товаров</title>
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="search-wrapper">
+		<div class="container">
+			<div class="search-top">
+				<div class="search-logo">
+					<img src="images/logo.svg" alt="Логотип">
+				</div>
+				<div class="search-close">
+					<img src="images/close.svg" alt="Закрыть">
+				</div>
+			</div>
+			<div class="search-body">
+				<form>
+					<input type="search" placeholder="Введите Ваши Поисковые слова ...">
+					<button>
+						<img src="images/magnify.svg" alt="Поиск">
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="mobile-menu-wrap">
+		<div class="mobile-header">
+			<div class="mobile-logo">
+				<img src="images/logo.svg" alt="Логотип">
+			</div>
+			<div class="mobile-close">
+				<img src="images/close.svg" alt="Закрыть">
+			</div>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="#">Товары</a></li>
+				<li><a href="#">Контакты</a></li>
+				<li><a href="authorization.html">Войти</a></li>
+			</ul>
+		</nav>
+		<div class="header-mobile-btn">
+			<a href="#" class="header-search-btn">
+				<img src="images/magnify.svg" alt="Поиск">
+			</a>
+			<a href="cart.html" class="header-cart">
+				<img src="images/cart.svg" alt="Корзина">
+			</a>
+		</div>
+	</div>
+
+	<header class="header">
+		<div class="container">
+			<div class="header-wrap">
+				<a href="/" class="header-logo">
+					<img src="images/logo.svg" alt="Логотип">
+				</a>
+
+				<div class="header-group">
+					<nav class="header-nav">
+						<ul>
+							<li><a href="#">Товары</a></li>
+							<li><a href="#">Контакты</a></li>
+							<li><a href="authorization.html">Войти</a></li>
+						</ul>
+					</nav>
+					<div class="header-right">
+						<a href="#" class="header-search-btn">
+							<img src="images/magnify.svg" alt="Поиск">
+						</a>
+						<a href="cart.html" class="header-cart">
+							<img src="images/cart.svg" alt="Корзина">
+						</a>
+					</div>
+				</div>
+
+				<div class="hamburger">
+					<img src="images/hamburger.svg" alt="Hamburger">
+				</div>
+			</div>
+		</div>
+	</header>
+
+    <section class="section-cart">
+        <header class="section-cart__header">
+            <div class="container">
+                <h1 class="title-1">Корзина товаров</h1>
+            </div>
+        </header>
+        <div class="section-cart__body">
+            <div class="container">
+
+                <section class="cart">
+                    <header class="cart-header">
+                        <div class="cart-header__title">Наименование</div>
+                        <div class="cart-header__count">Количество</div>
+                        <div class="cart-header__cost">Стоимость</div>
+                    </header>
+
+                    <section class="product">
+                        <div class="product__img"><img src="/images/borh.jpg" alt="Borh"></div>
+                        <div class="product__title">Борщ с салом</div>
+                        <div class="product__count">
+                            <div class="count">
+                                <div class="count__box">
+                                    <input type="number" class="count__input" min="1" max="100" value="1">
+                                </div>
+                                <div class="count__controls">
+                                    <button type="button" class="count__up">
+                                        <img src="images/icon-up.svg" alt="Increase">
+                                    </button>
+                                    <button type="button" class="count__down">
+                                        <img src="images/icon-down.svg" alt="Decrease">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__price">320₽</div>
+                        <div class="product__controls">
+                            <button type="button">
+                                <img src="images/cross.svg" alt="Delete">
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="product">
+                        <div class="product__img"><img src="images/grenki.jpg" alt="grenki"></div>
+                        <div class="product__title">Гренки с чесноком</div>
+                        <div class="product__count">
+                            <div class="count">
+                                <div class="count__box">
+                                    <input type="number" class="count__input" min="1" max="100" value="1">
+                                </div>
+                                <div class="count__controls">
+                                    <button type="button" class="count__up">
+                                        <img src="images/icon-up.svg" alt="Increase">
+                                    </button>
+                                    <button type="button" class="count__down">
+                                        <img src="images/icon-down.svg" alt="Decrease">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__price">150₽</div>
+                        <div class="product__controls">
+                            <button type="button">
+                                <img src="images/cross.svg" alt="Delete">
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="product">
+                        <div class="product__img"><img src="images/griby.jpg" alt="griby"></div>
+                        <div class="product__title">Грибы маринованные</div>
+                        <div class="product__count">
+                            <div class="count">
+                                <div class="count__box">
+                                    <input type="number" class="count__input" min="1" max="100" value="1">
+                                </div>
+                                <div class="count__controls">
+                                    <button type="button" class="count__up">
+                                        <img src="images/icon-up.svg" alt="Increase">
+                                    </button>
+                                    <button type="button" class="count__down">
+                                        <img src="images/icon-down.svg" alt="Decrease">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product__price">150₽</div>
+                        <div class="product__controls">
+                            <button type="button">
+                                <img src="images/cross.svg" alt="Delete">
+                            </button>
+                        </div>
+                    </section>
+
+
+                    <footer class="cart-footer">
+                        <div class="cart-footer__count">3 единицы</div>
+                        <div class="cart-footer__price">620₽</div>
+                        <div><button type="button" class="btn btn-dark">Заказать</button></div>
+                    </footer>
+                </section>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
