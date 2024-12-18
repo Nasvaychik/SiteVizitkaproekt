@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cs&je_^7c%wzpx*h5u8pj*4_8!=-_!5tm^@z_pazmiudcv_pom
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,14 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Polls.apps.PollsConfig'
+    'Polls.apps.PollsConfig',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -70,6 +72,37 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Restrant.wsgi.application'
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_HOSTS = [
+    'localhost',
+    '*',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost",
+    "http://localhost:8080",
+    "http://127.0.0.1:8080",
+]
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8080',
+    "http://127.0.0.1:8080",
+)
+
+SECURE_SSL_REDIRECT = False
+
+CSRF_COOKIE_SECURE = False
+
+SESSION_COOKIE_SECURE = False
+
+
+
+CORS_ALLOW_HEADERS = [ "accept", "referer", "accept-encoding", "authorization", "content-type", "dnt", "origin", "user-agent", "x-csrftoken", "x-sessionid", "x-requested-with"]
+
+CORS_EXPOSE_HEADERS = ['Set-Cookie']
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -117,7 +150,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
 
+MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
