@@ -1,0 +1,48 @@
+.order-form-container {
+  border: 1px solid white;
+}
+
+.order-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.order-form-container form button {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    gap: 10px;
+}
+
+.form-section-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.field_container {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+}
+
+.field_container span {
+    color: red;
+}
+
+.field_container input {
+  border-radius: 5px;
+  border: 1px solid grey;
+  padding: 3px;
+  line-height: 2rem;
+}

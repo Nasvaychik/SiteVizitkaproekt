@@ -8,9 +8,10 @@
     <title>Корзина товаров</title>
     <link rel="stylesheet" href="{% static 'css/cart.css'  %}">
     <link rel="stylesheet" href="{% static 'css/style.css'  %}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-
+    {% csrf_token %}
     <div class="search-wrapper">
 		<div class="container">
 			<div class="search-top">
@@ -52,7 +53,7 @@
 			<a href="#" class="header-search-btn">
 				<img src="{% static 'images/magnify.svg'  %}" alt="Поиск">
 			</a>
-			<a href="cart.html" class="header-cart">
+			<a href="{% url 'cart' %}" class="header-cart">
 				<img src="{% static 'images/cart.svg'  %}" alt="Корзина">
 			</a>
 		</div>
@@ -70,14 +71,16 @@
 						<ul>
 							<li><a href="#">Товары</a></li>
 							<li><a href="#">Контакты</a></li>
-							<li><a href="{% url 'login' %}">Войти</a></li>
+							{% if not request.user.is_authenticated %}
+								<li><a href="{% url 'login' %}">Войти</a></li>
+							{% endif %}
 						</ul>
 					</nav>
 					<div class="header-right">
 						<a href="#" class="header-search-btn">
 							<img src="{% static 'images/magnify.svg'  %}" alt="Поиск">
 						</a>
-						<a href="cart.html" class="header-cart">
+						<a href="{% url 'cart' %}" class="header-cart">
 							<img src="{% static 'images/cart.svg'  %}" alt="Корзина">
 						</a>
 					</div>
@@ -96,6 +99,13 @@
                 <h1 class="title-1">Корзина товаров</h1>
             </div>
         </header>
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
         <div class="section-cart__body">
             <div class="container">
 
@@ -105,34 +115,40 @@
                         <div class="cart-header__count">Количество</div>
                         <div class="cart-header__cost">Стоимость</div>
                     </header>
-
-                    <section class="product">
-                        <div class="product__img"><img src="{% static 'images/borh.jpg'  %}" alt="Borh"></div>
-                        <div class="product__title">Борщ с салом</div>
-                        <div class="product__count">
-                            <div class="count">
-                                <div class="count__box">
-                                    <input type="number" class="count__input" min="1" max="100" value="1">
-                                </div>
-                                <div class="count__controls">
-                                    <button type="button" class="count__up">
-                                        <img src="{% static 'images/icon-up.svg'  %}" alt="Increase">
-                                    </button>
-                                    <button type="button" class="count__down">
-                                        <img src="{% static 'images/icon-down.svg'  %}" alt="Decrease">
-                                    </button>
+                    
+                    {% for cart_item in cart_items %}
+                        <section class="product" data-id="{{ cart_item.id }}">
+                            <div class="product__img"><img src="{{ cart_item.item.photo.url }}" alt="Borh"></div>
+                            <div class="product__title">{{ cart_item.item.title }}</div>
+                            <div class="product__count">
+                                <div class="count">
+                                    <div class="count__box">
+                                        <input type="number" id="quantity" data-item="{{ cart_item.id }}" class="count__input" min="1" max="100" value="{{ cart_item.quantity }}">
+                                    </div>
+<!--                                    <div class="count__controls">-->
+<!--                                        <button type="button" class="count__up">-->
+<!--                                            <img src="{% static 'images/icon-up.svg'  %}" alt="Increase">-->
+<!--                                        </button>-->
+<!--                                        <button type="button" class="count__down">-->
+<!--                                            <img src="{% static 'images/icon-down.svg'  %}" alt="Decrease">-->
+<!--                                        </button>-->
+<!--                                    </div>-->
                                 </div>
                             </div>
-                        </div>
-                        <div class="product__price">320₽</div>
-                        <div class="product__controls">
-                            <button type="button">
-                                <img src="{% static 'images/cross.svg'  %}" alt="Delete">
-                            </button>
-                        </div>
-                    </section>
+                            <div class="product__price">{{cart_item.price_sum }}₽</div>
+                            <div class="product__controls">
+								<form method="POST" action="{% url 'remove_from_cart' item_id=cart_item.id %}">
+									<button type="submit">
+										<img src="{% static 'images/cross.svg'  %}" alt="Delete">
+									</button>
+								</form>
+                            </div>
+                        </section>
+                    {% empty %}
+                        <p>Корзина пуста!</p>
+                    {% endfor %}
 
-                    <section class="product">
+                    <!-- <section class="product">
                         <div class="product__img"><img src="{% static 'images/grenki.jpg'  %}" alt="grenki"></div>
                         <div class="product__title">Гренки с чесноком</div>
                         <div class="product__count">
@@ -182,19 +198,20 @@
                                 <img src="{% static 'images/cross.svg'  %}" alt="Delete">
                             </button>
                         </div>
-                    </section>
+                    </section> -->
 
 
                     <footer class="cart-footer">
-                        <div class="cart-footer__count">3 единицы</div>
-                        <div class="cart-footer__price">620₽</div>
-                        <div><button type="button" class="btn btn-dark">Заказать</button></div>
+                        <div class="cart-footer__count" id="total_count">{{ quantity_sum }} единиц(ы)</div>
+                        <div class="cart-footer__price" id="total_price">{{ price_sum }}₽</div>
+                        <div><button type="button" class="btn btn-dark" onclick="window.location.href = '/cart/order/';">Заказать</button></div>
                     </footer>
                 </section>
-
             </div>
         </div>
     </section>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{% static 'js/cart.js' %}">
+    </script>
 </body>
 </html>

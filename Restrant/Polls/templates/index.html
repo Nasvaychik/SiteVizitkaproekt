@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
 	<div class="search-wrapper">
 		<div class="container">
 			<div class="search-top">
@@ -72,7 +71,9 @@
 						<ul>
 							<li><a href="#">Товары</a></li>
 							<li><a href="#">Контакты</a></li>
-							<li><a href="{% url "register" %}">Войти</a></li>
+							{% if not request.user.is_authenticated %}
+								<li><a href="{% url 'login' %}">Войти</a></li>
+							{% endif %}
 						</ul>
 					</nav>
 					<div class="header-right">
@@ -146,91 +147,26 @@
 			<div class="container">
 				<h2 class="def-title center">Меню</h2>
 				<div class="products-grid">
-					<div class="products-item">
-						<div class="products-thumb">
-							<img src="{% static "images/borh.jpg" %}" alt="Продукт">
+					{% for product in products %}
+						<div class="products-item">
+							<div class="products-thumb">
+								<img src="{{ product.photo.url }}" alt="Продукт">
+							</div>
+							<h4 class="product-title">
+								<a href="#">{{ product.title }}</a>
+							</h4>
+							<div class="product-price-wrap">
+								<span class="product-price-new">{{ product.price }}₽</span>
+							</div>
+							<div class="product-button">
+								<a class="button" href="{% url 'add_to_cart' product_id=product.id %}" >
+									Добавить в корзину
+								</a>
+							</div>
 						</div>
-						<h4 class="product-title">
-							<a href="#">Борщ с салом</a>
-						</h4>
-						<div class="product-price-wrap">
-							<span class="product-price-new">320₽</span>
-						</div>
-						<div class="product-button">
-							<a class="button" href="#" >
-							Добавить в корзину</a>
-						</div>
-					</div>
-					<div class="products-item">
-						<div class="products-thumb">
-							<img src="{% static "images/olivki.jpg" %}" alt="Продукт">
-						</div>
-						<h4 class="product-title">
-							<a href="#">Оливки</a>
-						</h4>
-						<div class="product-price-wrap">
-							<span class="product-price-new">150₽</span>
-						</div>
-						<div class="product-button">
-							<a class="button" href="#">Добавить в корзину</a>
-						</div>
-					</div>
-					<div class="products-item">
-						<div class="products-thumb">
-							<img src="{% static "images/griby.jpg" %}" alt="Продукт">
-						</div>
-						<h4 class="product-title">
-							<a href="#">Грибы маринованные</a>
-						</h4>
-						<div class="product-price-wrap">
-							<span class="product-price-new">150₽</span>
-						</div>
-						<div class="product-button">
-							<a class="button" href="#">Добавить в корзину</a>
-						</div>
-					</div>
-					<div class="products-item">
-						<div class="products-thumb">
-							<img src="{% static "images/grenki.jpg" %}" alt="Продукт">
-						</div>
-						<h4 class="product-title">
-							<a href="#">Гренки с чесноком</a>
-						</h4>
-						<div class="product-price-wrap">
-							<span class="product-price-new">150₽</span>
-						</div>
-						<div class="product-button">
-							<a class="button" href="#">Добавить в корзину</a>
-						</div>
-					</div>
-					<div class="products-item">
-						<div class="products-thumb">
-							<img src="{% static "images/kolechki.jpg" %}" alt="Продукт">
-						</div>
-						<h4 class="product-title">
-							<a href="#">Луковые кольца</a>
-						</h4>
-						<div class="product-price-wrap">
-							<span class="product-price-new">190₽</span>
-						</div>
-						<div class="product-button">
-							<a class="button" href="#">Добавить в корзину</a>
-						</div>
-					</div>
-					<div class="products-item">
-						<div class="products-thumb">
-							<img src="{% static "images/sir.jpg" %}" alt="Продукт">
-						</div>
-						<h4 class="product-title">
-							<a href="#">Сыр чечил</a>
-						</h4>
-						<div class="product-price-wrap">
-							<span class="product-price-new">150₽</span>
-						</div>
-						<div class="product-button">
-							<a class="button" href="#">Добавить в корзину</a>
-						</div>
-					</div>
+					{% empty %}
+						<p>Товаров пока что нет ;(</p>
+					{% endfor %}
 				</div>
 			</div>
 		</section>

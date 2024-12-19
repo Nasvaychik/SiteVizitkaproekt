@@ -272,4 +272,12 @@ body {
   display: block;
 }
 
+ul.messages li {
+   display: flex;
+   justify-content: center;
+   color: green;
+   font-size: 18px;
+   font-weight: bold;
+}
+
 /*# sourceMappingURL=main.css.map */
